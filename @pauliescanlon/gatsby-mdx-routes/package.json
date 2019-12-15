@@ -26,7 +26,7 @@
   "keywords": [
     "gatsby",
     "gatsby-plugin",
-    "gatsby-remark"
+    "gatsby-mdx"
   ],
   "description": "Get routes for Gatsby .mdx (allMdx)",
   "bugs": {
