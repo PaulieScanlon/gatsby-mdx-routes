@@ -1,8 +1,11 @@
 import React, { Fragment } from "react"
-import { StaticQuery, graphql } from "gatsby"
-import Helmet from "react-helmet"
+import { StaticQuery, graphql, Link } from "gatsby"
 
 import PropTypes from "prop-types"
+
+import { MdxRoutes } from "@pauliescanlon/gatsby-mdx-routes"
+
+import Seo from "../components/seo"
 
 import "./layout.css"
 
@@ -23,8 +26,6 @@ const Layout = ({ children }) => {
         }
       `}
       render={data => {
-        const lang = "eng"
-
         const {
           title,
           description,
@@ -35,35 +36,40 @@ const Layout = ({ children }) => {
 
         return (
           <Fragment>
-            <Helmet title={title}>
-              <html lang={lang} />
-              <meta name="description" content={description} />
-              <meta name="image" content={`${siteURL}/images/${siteImage}`} />
-              <meta name="image:alt" content={description} />
+            <Seo
+              lang="eng"
+              title={title}
+              description={description}
+              siteImage={siteImage}
+              siteURL={siteURL}
+              author={author}
+            />
+            <main>
+              <nav>
+                <MdxRoutes>
+                  {routes => (
+                    <ul>
+                      {routes.map((route, index) => (
+                        <li key={index}>
+                          <Link to={route}>{route}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </MdxRoutes>
+              </nav>
+              <h1>@pauliescanlon/gatsby-mdx-routes</h1>
 
-              {/* Facebook */}
-              <meta property="og:title" content={title} />
-              <meta property="og:url" content={siteURL} />
-              <meta property="og:description" content={description} />
-              <meta
-                property="og:image"
-                content={`${siteURL}/images/${siteImage}`}
-              />
-              <meta property="og:type" content="website" />
-              <meta property="og:image:alt" content={description} />
-              {/* Twitter */}
-              <meta name="twitter:card" content="summary" />
-              <meta name="twitter:title" content={title} />
-              <meta name="twitter:url" content={siteURL} />
-              <meta name="twitter:description" content={description} />
-              <meta
-                name="twitter:image"
-                content={`${siteURL}/images/${siteImage}`}
-              />
-              <meta name="twitter:image:alt" content={description}></meta>
-              <meta name="twitter:creator" content={author}></meta>
-            </Helmet>
-            <main>{children}</main>
+              <MdxRoutes>
+                {routes => (
+                  <pre>
+                    <code>{JSON.stringify(routes, null, 2)}</code>
+                  </pre>
+                )}
+              </MdxRoutes>
+
+              {children}
+            </main>
           </Fragment>
         )
       }}
