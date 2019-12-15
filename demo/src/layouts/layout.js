@@ -59,15 +59,6 @@ const Layout = ({ children }) => {
                 </MdxRoutes>
               </nav>
               <h1>@pauliescanlon/gatsby-mdx-routes</h1>
-
-              <MdxRoutes>
-                {routes => (
-                  <pre>
-                    <code>{JSON.stringify(routes, null, 2)}</code>
-                  </pre>
-                )}
-              </MdxRoutes>
-
               {children}
             </main>
           </Fragment>

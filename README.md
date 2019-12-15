@@ -1,10 +1,10 @@
 # gatsby-mdx-routes
 
-gatsby-mdx-routes is a plugin that exposes links to `.mdx` pages sourced from `src/pages`.
+gatsby-mdx-routes is a plugin that exposes links to `.mdx` files sourced from `src/pages`.
 
-This plugin aims to seperate the data from the ui, whichs means the styling for you navigation is up to you.
+This plugin aims to seperate the data from the ui, whichs means the styling for your navigation is up to you.
 
-If you're using **gatsby-remark-sticky-table** in your project i'd love to hear from you [@pauliescanlon](https://twitter.com/PaulieScanlon)
+If you're using **gatsby-mdx-routes** in your project i'd love to hear from you [@pauliescanlon](https://twitter.com/PaulieScanlon)
 
 ## 👁️ Preview
 
@@ -68,6 +68,8 @@ Using the `defaultLayouts` from `gatsby-plugin-mdx` allows you to create one fil
 ```js
 import React from "react"
 import { Link } from "gatsby"
+
+import { MdxRoutes } from "@pauliescanlon/gatsby-mdx-routes"
 
 export default ({ children }) => (
   <div>

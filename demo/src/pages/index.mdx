@@ -1,1 +1,32 @@
 # Index
+
+### src/layouts/layout.js
+
+```js
+import React from "react"
+import { Link } from "gatsby"
+
+import { MdxRoutes } from "@pauliescanlon/gatsby-mdx-routes"
+
+export default ({ children }) => (
+  <div>
+    <nav>
+      <MdxRoutes>
+        {routes => (
+          <ul>
+            {routes.map((route, index) => (
+              <li key={index}>
+                <Link to={route}>{route}</Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </MdxRoutes>
+    </nav>
+    <main>
+      <h1>My Layout</h1>
+      <div>{children}</div>
+    </main>
+  </div>
+)
+```
