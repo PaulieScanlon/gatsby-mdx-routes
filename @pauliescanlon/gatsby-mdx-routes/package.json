@@ -1,0 +1,32 @@
+{
+  "name": "@pauliescanlon/gatsby-mdx-routes",
+  "author": "Paul Scanlon <pauliescanlon@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulieScanlon/gatsby-mdx-routes.git"
+  },
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "publish": "npm login"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-remark"
+  ],
+  "description": "Get routes for Gatsby .mdx (allMdx)",
+  "bugs": {
+    "url": "https://github.com/PaulieScanlon/gatsby-mdx-routes/issues"
+  },
+  "homepage": "https://github.com/PaulieScanlon/gatsby-mdx-routes#readme"
+}
