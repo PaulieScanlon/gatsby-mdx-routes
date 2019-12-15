@@ -1,3 +1,13 @@
+<div>
+
+![npm (scoped)](https://img.shields.io/npm/v/@pauliescanlon/gatsby-mdx-routes?style=flat-square)
+
+![npm](https://img.shields.io/npm/dt/@pauliescanlon/gatsby-mdx-routes?style=flat-square)
+
+![NPM](https://img.shields.io/npm/l/@pauliescanlon/gatsby-mdx-routes?style=flat-square)
+
+</div>
+
 # gatsby-mdx-routes
 
 gatsby-mdx-routes is a plugin that exposes links to `.mdx` files sourced from `src/pages`.
