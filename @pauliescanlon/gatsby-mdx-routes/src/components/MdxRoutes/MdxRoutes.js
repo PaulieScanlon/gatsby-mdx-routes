@@ -13,14 +13,23 @@ export const MdxRoutes = ({ children }) => {
                 fields {
                   slug
                 }
+                frontmatter {
+                  title
+                }
               }
             }
           }
         }
       `}
-      render={data =>
-        children(data.allMdx.edges.map(data => data.node.fields.slug))
-      }
+      render={data => {
+        const mdxData = data.allMdx.edges.map(data => {
+          return {
+            title: data.node.frontmatter.title,
+            route: data.node.fields.slug,
+          }
+        })
+        return children(mdxData)
+      }}
     />
   )
 }

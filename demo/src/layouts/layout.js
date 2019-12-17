@@ -51,7 +51,7 @@ const Layout = ({ children }) => {
                     <ul>
                       {routes.map((route, index) => (
                         <li key={index}>
-                          <Link to={route}>{route}</Link>
+                          <Link to={route.route}>{route.title}</Link>
                         </li>
                       ))}
                     </ul>
