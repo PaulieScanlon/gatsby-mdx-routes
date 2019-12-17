@@ -73,6 +73,15 @@ module.exports = {
 
 Using the `defaultLayouts` from `gatsby-plugin-mdx` allows you to create one file that will be repated across pages. This is where we'll add `MdxRoutes`.
 
+### MdxRoutes
+
+MdxRoutes returns to keys one is the actual route to the file in question, the other is the title from frontmatter
+
+| Key   | Description                      |
+| ----- | -------------------------------- |
+| slug  | Route to `.mdx` file             |
+| title | title extracted from frontmatter |
+
 ### src/pages/a-page.mdx
 
 In order to construct a more human readable navigation use frontmatter in your `.mdx` file and add a title field
@@ -89,30 +98,27 @@ title: Page Title
 ### src/layouts/layout.js
 
 ```js
-import React from "react"
+import React, { Fragment } from "react"
 import { Link } from "gatsby"
 
 import { MdxRoutes } from "@pauliescanlon/gatsby-mdx-routes"
 
 export default ({ children }) => (
-  <div>
+  <Fragment>
     <nav>
       <MdxRoutes>
         {routes => (
           <ul>
             {routes.map((route, index) => (
               <li key={index}>
-                <Link to={route.route}>{route.title}</Link>
+                <Link to={route.slug}>{route.title}</Link>
               </li>
             ))}
           </ul>
         )}
       </MdxRoutes>
     </nav>
-    <main>
-      <h1>My Layout</h1>
-      <div>{children}</div>
-    </main>
-  </div>
+    <main>{children}</main>
+  </Fragment>
 )
 ```

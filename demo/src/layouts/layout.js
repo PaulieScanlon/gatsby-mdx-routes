@@ -44,23 +44,20 @@ const Layout = ({ children }) => {
               siteURL={siteURL}
               author={author}
             />
-            <main>
-              <nav>
-                <MdxRoutes>
-                  {routes => (
-                    <ul>
-                      {routes.map((route, index) => (
-                        <li key={index}>
-                          <Link to={route.route}>{route.title}</Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </MdxRoutes>
-              </nav>
-              <h1>@pauliescanlon/gatsby-mdx-routes</h1>
-              {children}
-            </main>
+            <nav>
+              <MdxRoutes>
+                {routes => (
+                  <ul>
+                    {routes.map((route, index) => (
+                      <li key={index}>
+                        <Link to={route.slug}>{route.title}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </MdxRoutes>
+            </nav>
+            <main>{children}</main>
           </Fragment>
         )
       }}

@@ -25,7 +25,7 @@ export const MdxRoutes = ({ children }) => {
         const mdxData = data.allMdx.edges.map(data => {
           return {
             title: data.node.frontmatter.title,
-            route: data.node.fields.slug,
+            slug: data.node.fields.slug,
           }
         })
         return children(mdxData)
