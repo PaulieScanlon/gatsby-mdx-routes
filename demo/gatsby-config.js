@@ -3,7 +3,7 @@ module.exports = {
     title: `@pauliescanlon/gatsby-mdx-routes`,
     description: `gatsby-mdx-routes is....`,
     siteURL: "https://gatsby-mdx-routes.netlify.com",
-    siteImage: "mdx-routes-og-image.jpg",
+    siteImage: "mdx-routes-main-og-image.jpg",
     author: "@pauliescanlon",
   },
   plugins: [
