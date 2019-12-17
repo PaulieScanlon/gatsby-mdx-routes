@@ -73,6 +73,19 @@ module.exports = {
 
 Using the `defaultLayouts` from `gatsby-plugin-mdx` allows you to create one file that will be repated across pages. This is where we'll add `MdxRoutes`.
 
+### src/pages/a-page.mdx
+
+In order to construct a more human readable navigation use frontmatter in your `.mdx` file and add a title field
+
+#### frontmatter
+
+```js
+---
+title: Page Title
+---
+
+```
+
 ### src/layouts/layout.js
 
 ```js
