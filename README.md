@@ -77,10 +77,10 @@ Using the `defaultLayouts` from `gatsby-plugin-mdx` allows you to create one fil
 
 MdxRoutes returns to keys one is the actual route to the file in question, the other is the title from frontmatter
 
-| Key   | Description                      |
-| ----- | -------------------------------- |
-| slug  | Route to `.mdx` file             |
-| title | title extracted from frontmatter |
+| Key             | Description                                |
+| --------------- | ------------------------------------------ |
+| slug            | Route to `.mdx` file                       |
+| navigationLabel | navigationLabel extracted from frontmatter |
 
 ### src/pages/a-page.mdx
 
@@ -90,7 +90,7 @@ In order to construct a more human readable navigation use frontmatter in your `
 
 ```js
 ---
-title: Page Title
+navigationLabel: Page Title
 ---
 
 ```
@@ -111,7 +111,7 @@ export default ({ children }) => (
           <ul>
             {routes.map((route, index) => (
               <li key={index}>
-                <Link to={route.slug}>{route.title}</Link>
+                <Link to={route.slug}>{route.navigationLabel}</Link>
               </li>
             ))}
           </ul>
