@@ -12,7 +12,7 @@
 
 gatsby-mdx-routes is a plugin that exposes links to `.mdx` files sourced from `src/pages`.
 
-This plugin aims to seperate the data from the ui, whichs means the styling for your navigation is up to you.
+This plugin aims to separate the data from the ui, which means the styling for your navigation is up to you.
 
 If you're using **gatsby-mdx-routes** in your project i'd love to hear from you [@pauliescanlon](https://twitter.com/PaulieScanlon)
 
@@ -71,11 +71,11 @@ module.exports = {
 }
 ```
 
-Using the `defaultLayouts` from `gatsby-plugin-mdx` allows you to create one file that will be repated across pages. This is where we'll add `MdxRoutes`.
+Using the `defaultLayouts` from `gatsby-plugin-mdx` allows you to create one file that will be repeated across pages. This is where we'll add `MdxRoutes`.
 
 ### MdxRoutes
 
-MdxRoutes returns to keys one is the actual route to the file in question, the other is the title from frontmatter
+MdxRoutes returns two keys one is the actual route to the file in question, the other is the title from frontmatter
 
 | Key             | Description                                |
 | --------------- | ------------------------------------------ |
@@ -122,3 +122,29 @@ export default ({ children }) => (
   </Fragment>
 )
 ```
+
+#### props
+
+| Prop            | Type          | Required | Description                   |
+| --------------- | ------------- | -------- | ----------------------------- |
+| navigationOrder | Array[string] | no       | A reference array to order by |
+
+##### navigationOrder
+
+```js
+<MdxRoutes navigationOrder={["Contact", "About", "Home", "Sub Page"]}>
+  {routes => (
+    <ul>
+      {routes.map((route, index) => (
+        <li key={index}>
+          <Link to={route.slug}>{route.navigationLabel}</Link>
+        </li>
+      ))}
+    </ul>
+  )}
+</MdxRoutes>
+```
+
+If you're using **gatsby-mdx-routes** in your project i'd love to hear from you [@pauliescanlon](https://twitter.com/PaulieScanlon)
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P31B7G8)
