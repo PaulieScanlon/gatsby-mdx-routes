@@ -13,3 +13,18 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
   }
 }
+
+// exports.createSchemaCustomization = ({ actions }, pluginOptions) => {
+//   console.log("pluginOptions: ", pluginOptions)
+
+//   const { frontmatter } = pluginOptions
+
+//   const { createTypes } = actions
+
+//   const typeDefs = `
+//   type MdxFrontmatter @infer {
+//     menu: String
+//   }
+//   `
+//   createTypes(typeDefs)
+// }
