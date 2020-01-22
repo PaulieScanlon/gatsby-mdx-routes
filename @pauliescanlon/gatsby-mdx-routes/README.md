@@ -14,8 +14,6 @@ gatsby-mdx-routes is a plugin that exposes links to `.mdx` files sourced from `s
 
 This plugin aims to separate the data from the ui, which means the styling for your navigation is up to you.
 
-If you're using **gatsby-mdx-routes** in your project i'd love to hear from you [@pauliescanlon](https://twitter.com/PaulieScanlon)
-
 ## 👁️ Preview
 
 - [Live Demo](https://gatsby-mdx-routes.netlify.com/)
@@ -48,7 +46,6 @@ module.exports = {
         defaultLayouts: {
           default: `${__dirname}/src/layouts/layout.js`,
         },
-        plugins: [`@pauliescanlon/gatsby-mdx-routes`],
       },
     },
   ],
@@ -73,18 +70,22 @@ module.exports = {
 
 Using the `defaultLayouts` from `gatsby-plugin-mdx` allows you to create one file that will be repeated across pages. This is where we'll add `MdxRoutes`.
 
-### MdxRoutes
+## MdxRoutes
 
-MdxRoutes returns two keys one is the actual route to the file in question, the other is the title from frontmatter
+MdxRoutes returns two arrays _routes_ which is a flat array and _menus_ which is created recursively and contains a `menu` array.
+
+You will probably use one or the other, not both.
+
+### routes
+
+The `routes` array returns two object keys, one is the actual route to the file in question (`slug`), the other is the `navigationLabel` from _frontmatter_
 
 | Key             | Description                                |
 | --------------- | ------------------------------------------ |
 | slug            | Route to `.mdx` file                       |
 | navigationLabel | navigationLabel extracted from frontmatter |
 
-### src/pages/a-page.mdx
-
-In order to construct a more human readable navigation use frontmatter in your `.mdx` file and add a title field
+src/pages/a-page.mdx
 
 #### frontmatter
 
@@ -95,7 +96,7 @@ navigationLabel: Page Title
 
 ```
 
-### src/layouts/layout.js
+src/layouts/layout.js
 
 ```js
 import React, { Fragment } from "react"
@@ -107,7 +108,7 @@ export default ({ children }) => (
   <Fragment>
     <nav>
       <MdxRoutes>
-        {routes => (
+        {(routes, _) => (
           <ul>
             {routes.map((route, index) => (
               <li key={index}>
@@ -123,17 +124,103 @@ export default ({ children }) => (
 )
 ```
 
-#### props
+### menus
+
+The `menus` array also returns the two object keys mentioned above, it also returns the following
+
+| Key             | Description                                 |
+| --------------- | ------------------------------------------- |
+| slug            | Route to `.mdx` file                        |
+| navigationLabel | navigationLabel extracted from frontmatter  |
+| id              | key to use in recursive function            |
+| parent          | string to determine parent                  |
+| menu            | array of routes grouped by parent           |
+| paths           | internal array to use in recursive function |
+
+The _menus_ array is constructed by looking at the file paths on disk and determining what depth a file lives. This is calculated by the amount of forward slashes in the `slug`
+
+**To create the menus array `MdxRoutes` will mirror the directory structure in your project**
+
+your project
+
+<!-- prettier-ignore -->
+```
+|-- src
+    |-- pages
+        |-- other-pages
+           |-- some-other-page.mdx
+        |-- sub-pages
+            |-- sub-page-items
+               |-- sub-page-items-again
+                  |-- sub-page-item-again-1.mdx
+               |-- sub-page-item-1.mdx
+            |-- sub-page-1.mdx
+        |-- about.mdx
+        |-- contact.mdx
+        |-- index.mdx
+```
+
+To use the **menus** array you'll also need a recursive **Tree** function to create your navigation list.
+
+Watch out for the conditional `slug`, we need this to determine if the route is a parent or an actual route to a file
+
+src/layouts/layout.js
+
+```js
+import React, { Fragment } from "react"
+import { Link } from "gatsby"
+
+import { MdxRoutes } from "@pauliescanlon/gatsby-mdx-routes"
+
+const Tree = ({ menus }) => {
+  const createTree = menus => {
+    return (
+      <ul>
+        {menus.map(route => (
+          <li key={route.navigationLabel}>
+            {route.slug ? (
+              <Link to={route.slug}>
+                {route.navigationLabel}
+                {route.menu && createTree(route.menu)}
+              </Link>
+            ) : (
+              <span>
+                {route.navigationLabel}
+                {route.menu && createTree(route.menu)}
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  return createTree(menus, null)
+}
+
+export default ({ children }) => (
+  <Fragment>
+    <nav>
+      <MdxRoutes>{(_, menus) => <Tree menus={menus} />}</MdxRoutes>
+    </nav>
+    <main>{children}</main>
+  </Fragment>
+)
+```
+
+### props
 
 | Prop            | Type          | Required | Description                   |
 | --------------- | ------------- | -------- | ----------------------------- |
 | navigationOrder | Array[string] | no       | A reference array to order by |
 
-##### navigationOrder
+#### navigationOrder
+
+By passing in an array of strings `MdxRoutes` can use this to sort the returned **routes** or **menus** array, otherwise everything is just returned alphabetically in an ascending order
 
 ```js
 <MdxRoutes navigationOrder={["Contact", "About", "Home", "Sub Page"]}>
-  {routes => (
+  {(routes, menus) => (
     <ul>
       {routes.map((route, index) => (
         <li key={index}>
