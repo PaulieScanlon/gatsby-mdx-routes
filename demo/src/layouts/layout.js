@@ -32,7 +32,7 @@ const Tree = ({ menus }) => {
     )
   }
 
-  return createTree(menus, null)
+  return createTree(menus)
 }
 
 const Layout = ({ children }) => {
