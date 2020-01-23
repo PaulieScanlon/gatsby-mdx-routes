@@ -1,1 +1,1 @@
-export { MdxRoutes } from "./src/components/MdxRoutes"
+export { MdxRoutes } from "./components/MdxRoutes";

@@ -8,7 +8,8 @@
     "test": "yarn workspace @pauliescanlon/gatsby-mdx-routes test",
     "test:watch": "yarn workspace @pauliescanlon/gatsby-mdx-routes test:watch",
     "test:coverage": "yarn workspace @pauliescanlon/gatsby-mdx-routes test:coverage",
-    "release": "node copy-readme.js && yarn workspace @pauliescanlon/gatsby-mdx-routes publish"
+    "release": "node copy-readme.js && yarn workspace @pauliescanlon/gatsby-mdx-routes publish",
+    "plugin:build": "yarn workspace @pauliescanlon/gatsby-mdx-routes build"
   },
   "workspaces": [
     "demo",
