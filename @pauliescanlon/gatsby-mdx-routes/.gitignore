@@ -18,6 +18,8 @@ pids
 components
 utils
 gatsby-node.js
+gatsby-node.d.ts
+index.d.ts
 index.js
 
 # Coverage directory used by tools like istanbul
