@@ -28,7 +28,9 @@ npm install @pauliescanlon/gatsby-mdx-routes
 
 ### Setup
 
-To source `.mdx` files from `src/pages` you'll need `gatsby-source-filesystem` and `gatsby-plugin-mdx` installed. Your `gatsby-config` should look something like this...
+To source `.mdx` files from `src/pages` you'll need `gatsby-source-filesystem` and `gatsby-plugin-mdx` installed.
+
+Your `gatsby-config` should look something like this...
 
 ```js
 module.exports = {
@@ -68,11 +70,13 @@ module.exports = {
 }
 ```
 
-Using the `defaultLayouts` from `gatsby-plugin-mdx` allows you to create one file that will be repeated across pages. This is where we'll add `MdxRoutes`.
+Using the `defaultLayouts` from `gatsby-plugin-mdx` allows you to create one file that will be repeated across pages.
+
+This is where we'll add `MdxRoutes`.
 
 ## MdxRoutes
 
-MdxRoutes returns two arrays _routes_ which is a flat array and _menus_ which is created recursively and contains a `menu` array.
+MdxRoutes returns two arrays, _routes_ which is a flat array and _menus_ which is created recursively and contains a `menu` array.
 
 You will probably use one or the other, not both.
 
@@ -162,7 +166,7 @@ your project
 
 To use the **menus** array you'll also need a recursive **Tree** function to create your navigation list.
 
-Watch out for the conditional `slug`, we need this to determine if the route is a parent or an actual route to a file
+Watch out for the conditional `slug`, we need this to determine if the object key is a parent or an actual route to a file.
 
 src/layouts/layout.js
 
