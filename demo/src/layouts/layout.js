@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
             />
             <main>{children}</main>
             <h2>routes</h2>
-            <p>Simple example `routes.map()`</p>
+            <p>Simple example `routes.map`</p>
             <nav>
               <MdxRoutes>
                 {(routes, _) => (
@@ -87,7 +87,7 @@ const Layout = ({ children }) => {
               </MdxRoutes>
             </nav>
             <h2>routes navigationOrder</h2>
-            <p>Simple example `routes.map()` with `navigationOrder`</p>
+            <p>Simple example `routes.map` with `navigationOrder`</p>
             <nav>
               <MdxRoutes
                 navigationOrder={[
@@ -112,12 +112,12 @@ const Layout = ({ children }) => {
               </MdxRoutes>
             </nav>
             <h2>menus</h2>
-            <p>Recursive example `createTree()`</p>
+            <p>Recursive example `createTree`</p>
             <nav>
               <MdxRoutes>{(_, menus) => <Tree menus={menus} />}</MdxRoutes>
             </nav>
             <h2>menus navigationOrder</h2>
-            <p>Recursive example `createTree()` with `navigationOrder`</p>
+            <p>Recursive example `createTree` with `navigationOrder`</p>
             <nav>
               <MdxRoutes
                 navigationOrder={[

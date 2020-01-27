@@ -1,7 +1,7 @@
-export const recursiveMenu = routes => {
+export const recursiveMenu = (routes: any) => {
   const createItemsFromSlugs = routes
-    .map(route => {
-      let paths = route.slug.split("/").filter(s => s)
+    .map((route: any) => {
+      let paths = route.slug.split("/").filter((s: any) => s)
       return {
         ...route,
         id: paths.length > 1 ? paths[paths.length - 1] : "",
@@ -10,7 +10,7 @@ export const recursiveMenu = routes => {
         menu: null,
       }
     })
-    .reduce((items, item, index) => {
+    .reduce((items: any, item: any, index: any) => {
       items.push(item)
 
       if (items[index].id && items[index].id !== item.parent) {
@@ -26,14 +26,14 @@ export const recursiveMenu = routes => {
 
       return items
     }, [])
-    .filter(route => route.navigationLabel)
+    .filter((route: any) => route.navigationLabel)
 
-  const createRecursiveMenu = (array, parent) => {
-    let result = []
+  const createRecursiveMenu = (array: any, parent: any) => {
+    let result: any = []
 
     array
-      .filter(route => route.parent === parent)
-      .forEach(route => {
+      .filter((route: any) => route.parent === parent)
+      .forEach((route: any) => {
         route.menu = createRecursiveMenu(array, route.id)
         return result.push(route)
       })
