@@ -70,6 +70,25 @@ const Layout = ({ children }) => {
               siteURL={siteURL}
               author={author}
             />
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/PaulieScanlon/gatsby-mdx-routes"
+                  target="_blank"
+                >
+                  GitHub: gatsby-mdx-routes
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.npmjs.com/package/@pauliescanlon/gatsby-mdx-routes"
+                  target="_blank"
+                >
+                  npm: @pauliescanlon/gatsby-mdx-routes
+                </a>
+              </li>
+            </ul>
+
             <main>{children}</main>
             <h2>routes</h2>
             <p>Simple example `routes.map`</p>
