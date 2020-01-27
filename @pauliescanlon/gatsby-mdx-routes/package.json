@@ -12,23 +12,29 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "publish": "npm login",
-    "build": "babel src --out-dir ."
+    "build": "npm run build:js",
+    "build:js": "babel src --out-dir .",
+    "build:watch": "babel src --out-dir . --watch",
+    "tsc": "tsc"
   },
-  "dependencies": {
-    "gatsby-source-filesystem": "^2.1.42",
-    "react": "^16.12.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
-    "jest": "^24.9.0",
-    "prettier": "^1.19.1"
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/node": "^13.1.7",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.5"
   },
   "peerDependencies": {
-    "gatsby": "^2.18.12"
+    "gatsby": "^2.18.12",
+    "react": "^16.12.0"
   },
   "keywords": [
     "gatsby",

@@ -2,7 +2,7 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 
-import { recursiveMenu } from "./recursiveMenu"
+import { recursiveMenu } from "../../utils/recursiveMenu"
 
 export const MdxRoutes = ({ children, navigationOrder }) => {
   return (
