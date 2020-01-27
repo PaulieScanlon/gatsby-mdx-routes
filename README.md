@@ -12,7 +12,7 @@
 
 gatsby-mdx-routes is a plugin that exposes links to `.mdx` files sourced from `src/pages`.
 
-This plugin aims to separate the data from the ui, which means the styling for your navigation is up to you.
+This plugin aims to separate the data from the ui, which means the styling of your navigation is up to you.
 
 ## 👁️ Preview
 

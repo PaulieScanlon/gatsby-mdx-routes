@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react"
 import { StaticQuery, graphql } from "gatsby"
-import PropTypes from "prop-types"
 
 import { recursiveMenu } from "../../utils/recursiveMenu"
 
