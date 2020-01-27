@@ -5,13 +5,14 @@
     "type": "git",
     "url": "git+https://github.com/PaulieScanlon/gatsby-mdx-routes.git"
   },
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
+    "publish": "npm run build && npm login",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build": "npm run build:types && npm run build:js",
