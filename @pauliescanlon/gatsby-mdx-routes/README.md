@@ -220,7 +220,7 @@ export default ({ children }) => (
 
 #### navigationOrder
 
-By passing in an array of strings `MdxRoutes` can use this to sort the returned **routes** or **menus** array, otherwise everything is just returned alphabetically in an ascending order
+By passing in an array of strings `MdxRoutes` can use this to sort the returned **routes** or **menus** array, otherwise everything is just returned alphabetically in an ascending order based on the slug, with the index ("/") being first in the list.
 
 ```js
 <MdxRoutes navigationOrder={["Contact", "About", "Home", "Sub Page"]}>
