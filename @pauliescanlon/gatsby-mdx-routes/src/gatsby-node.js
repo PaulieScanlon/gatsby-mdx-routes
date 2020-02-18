@@ -3,7 +3,8 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `Mdx`) {
+  // only create the slug for mdx files sourced from pages directory
+  if (node.internal.type === `Mdx` && node.fileAbsolutePath.includes(`pages`)) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
 
     createNodeField({

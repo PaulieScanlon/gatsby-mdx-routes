@@ -91,7 +91,9 @@ const Layout = ({ children }) => {
 
             <main>{children}</main>
             <h2>routes</h2>
-            <p>Simple example `routes.map`</p>
+            <p>
+              Simple example <code>routes.map</code>
+            </p>
             <nav>
               <MdxRoutes>
                 {(routes, _) => (
@@ -106,17 +108,20 @@ const Layout = ({ children }) => {
               </MdxRoutes>
             </nav>
             <h2>routes navigationOrder</h2>
-            <p>Simple example `routes.map` with `navigationOrder`</p>
+            <p>
+              Simple example <code>routes.map</code> with{" "}
+              <code>navigationOrder</code>
+            </p>
             <nav>
               <MdxRoutes
                 navigationOrder={[
-                  "home",
+                  "contact",
                   "some other page",
                   "sub page 1",
+                  "about",
                   "sub page item 1",
                   "sub page item again 1",
-                  "about",
-                  "contact",
+                  "home",
                 ]}
               >
                 {(routes, _) => (
@@ -131,20 +136,25 @@ const Layout = ({ children }) => {
               </MdxRoutes>
             </nav>
             <h2>menus</h2>
-            <p>Recursive example `createTree`</p>
+            <p>
+              Recursive example <code>createTree</code>
+            </p>
             <nav>
               <MdxRoutes>{(_, menus) => <Tree menus={menus} />}</MdxRoutes>
             </nav>
             <h2>menus navigationOrder</h2>
-            <p>Recursive example `createTree` with `navigationOrder`</p>
+            <p>
+              Recursive example <code>createTree</code> with{" "}
+              <code>navigationOrder</code>
+            </p>
             <nav>
               <MdxRoutes
                 navigationOrder={[
-                  "home",
-                  "sub pages",
-                  "other pages",
-                  "about",
                   "contact",
+                  "sub pages",
+                  "about",
+                  "other pages",
+                  "home",
                 ]}
               >
                 {(_, menus) => <Tree menus={menus} />}

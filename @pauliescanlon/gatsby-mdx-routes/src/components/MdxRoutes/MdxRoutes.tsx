@@ -42,15 +42,21 @@ export const MdxRoutes: FunctionComponent<IMdxRoutesProps> = ({
   const { edges } = data.allMdx
 
   const sortOrder = (array: IMdxData[]) => {
-    return array.sort((a: any, b: any) => {
-      if (navigationOrder) {
+    if (navigationOrder) {
+      return array.sort((a: any, b: any) => {
         return (
           navigationOrder.indexOf(a.navigationLabel) -
           navigationOrder.indexOf(b.navigationLabel)
         )
+      })
+    }
+
+    return array.reduce((routes: any, route: any) => {
+      if (route.slug === "/") {
+        return [route, ...routes]
       }
-      return a.navigationLabel - b.navigationLabel
-    })
+      return [...routes, route]
+    }, [])
   }
 
   const mdxData = edges.map(
