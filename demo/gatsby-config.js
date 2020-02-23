@@ -21,6 +21,14 @@ module.exports = {
         path: `${__dirname}/src/pages/`,
       },
     },
+    // test source file system to ensure routes are only created for files sourced from src/pages
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts/`,
+      },
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

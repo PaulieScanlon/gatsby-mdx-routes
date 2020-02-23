@@ -21,9 +21,12 @@ export const MdxRoutes: FunctionComponent<IMdxRoutesProps> = ({
   children,
   navigationOrder,
 }) => {
+  // the filter is to project the query against other mdx queries in the host site
+  // by filter out anything that's not in pages we safe guard the routes which
+  // are only supposed to be sourced from `pages`
   const data = useStaticQuery(graphql`
     query {
-      allMdx {
+      allMdx(filter: { fileAbsolutePath: { regex: "//pages//" } }) {
         edges {
           node {
             id
