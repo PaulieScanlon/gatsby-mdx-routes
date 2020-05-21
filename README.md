@@ -149,19 +149,19 @@ your project
 
 <!-- prettier-ignore -->
 ```
-|-- src
-    |-- pages
-        |-- other-pages
-           |-- some-other-page.mdx
-        |-- sub-pages
-            |-- sub-page-items
-               |-- sub-page-items-again
-                  |-- sub-page-item-again-1.mdx
-               |-- sub-page-item-1.mdx
-            |-- sub-page-1.mdx
-        |-- about.mdx
-        |-- contact.mdx
-        |-- index.mdx
+└─ src
+    └─ pages
+        └─ other-pages
+            └─ some-other-page.mdx
+        ├─ sub-pages
+            ├─ sub-page-items
+              ├─ sub-page-items-again
+                └─ sub-page-item-again-1.mdx
+              └─ sub-page-item-1.mdx
+            └─ sub-page-1.mdx
+        ├─ about.mdx
+        ├─ contact.mdx
+        └─ index.mdx
 ```
 
 To use the **menus** array you'll also need a recursive **Tree** function to create your navigation list.
